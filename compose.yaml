@@ -1,0 +1,12 @@
+services:
+  metering:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      METER_API_KEYS: '{"local-demo-alpha": "alpha", "local-demo-beta": "beta"}'
+      METER_DB: /app/data/metering.db
+    volumes:
+      - meter-data:/app/data
+volumes:
+  meter-data:
